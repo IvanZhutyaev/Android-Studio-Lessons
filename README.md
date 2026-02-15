@@ -45,4 +45,4 @@ ActivityMainBinding binding;
 ```java
 binding=activityMainBinding.inflate(getLayoutInflater());
 setcontentView(binding.getRoot());
-```java
+```
