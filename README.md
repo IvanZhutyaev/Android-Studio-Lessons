@@ -46,3 +46,18 @@ ActivityMainBinding binding;
 binding=activityMainBinding.inflate(getLayoutInflater());
 setcontentView(binding.getRoot());
 ```
+
+## Button
+
+```java
+<Button
+        android:layout_width="180dp" //Ширина
+        android:layout_height="80dp" //Длина
+        app:layout_constraintRight_toRightOf="parent" //Правый край к правой стенке
+        app:layout_constraintBottom_toBottomOf="parent" //Левый край к Левой стенке
+        app:layout_constraintLeft_toLeftOf="parent" //Ну ты понял
+        app:layout_constraintTop_toTopOf="parent" //Сам знаешь
+        app:layout_constraintVertical_bias="0.1" //Привязка по вертикали
+        app:layout_constraintHorizontal_bias="0.3" /Привязка по горизонтали
+        />
+```
