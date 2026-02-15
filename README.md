@@ -58,6 +58,6 @@ setcontentView(binding.getRoot());
         app:layout_constraintLeft_toLeftOf="parent" //Ну ты понял
         app:layout_constraintTop_toTopOf="parent" //Сам знаешь
         app:layout_constraintVertical_bias="0.1" //Привязка по вертикали
-        app:layout_constraintHorizontal_bias="0.3" /Привязка по горизонтали
+        app:layout_constraintHorizontal_bias="0.3" //Привязка по горизонтали
         />
 ```
