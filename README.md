@@ -40,7 +40,7 @@
 ```java
 ActivityMainBinding binding;
 ```
-<br>
+
 5)Инициализируем её и подставляем в контент:
 ```java
 binding=activityMainBinding.inflate(getLayoutInflater());
