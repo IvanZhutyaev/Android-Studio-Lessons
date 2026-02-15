@@ -36,4 +36,13 @@
 1)Открываем файл build.gradle.kts(Module: app)
 2)Над блоком buildTypes пишем : buildfeatures{viewBinding = true}
 3)Нажимаем Sync Now
-4)В Java-файле создаём объект по названию layout-файла
+4)В Java-файле создаём объект по названию layout-файла:
+```java
+ActivityMainBinding binding;
+```
+
+5)Инициализируем её и подставляем в контент:
+```java
+binding=activityMainBinding.inflate(getLayoutInflater());
+setcontentView(binding.getRoot());
+```java
