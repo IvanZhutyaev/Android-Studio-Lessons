@@ -33,14 +33,14 @@
  - **Res** - каталог, содержащий ресурсы приложения(обязательно)
 
 ## Привязка View-компонентов
-1)Открываем файл build.gradle.kts(Module: app)
-2)Над блоком buildTypes пишем : buildfeatures{viewBinding = true}
-3)Нажимаем Sync Now
+1)Открываем файл build.gradle.kts(Module: app)<br>
+2)Над блоком buildTypes пишем : buildfeatures{viewBinding = true}<br>
+3)Нажимаем Sync Now<br>
 4)В Java-файле создаём объект по названию layout-файла:
 ```java
 ActivityMainBinding binding;
 ```
-
+<br>
 5)Инициализируем её и подставляем в контент:
 ```java
 binding=activityMainBinding.inflate(getLayoutInflater());
