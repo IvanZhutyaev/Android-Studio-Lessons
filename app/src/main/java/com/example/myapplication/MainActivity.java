@@ -36,6 +36,19 @@ public class MainActivity extends AppCompatActivity {
         setupAchievementsTexts();
         render();
 
+        binding.centerButton.setOnClickListener(v->{
+            int taps=prefs.getInt(KEY_TAPS, 0)+1;
+            prefs.edit().putInt(KEY_TAPS, taps).apply();
+
+            v.animate().cancel();
+            v.setScaleX(1f);
+            v.setScaleY(1f);
+            v.animate().scaleX(1.03f)
+                    .scaleY(1.03f)
+                    .setDuration(90)
+                    .withEndAction(()->v.animate().scaleX(1f).scaleY(1f).setDuration(120).start()).start();
+        });
+
     }
 
 
