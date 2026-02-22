@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.textview.MaterialTextView;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -32,11 +34,36 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     private void setupAchievementsTexts() {
         setAchievementsTexts(binding.a1.getRoot(), "Опора семьи", "Всегда рядом, когда это важно");
         setAchievementsTexts(binding.a2.getRoot(), "Мастер на все руки", "Любая задача решается спокойно уверенно");
         setAchievementsTexts(binding.a3.getRoot(), "Мудрый совет", "Слова, которые помогают идти дальше");
         setAchievementsTexts(binding.a4.getRoot(), "Сила терпения", "Спокойствие,которое держит дом");
         setAchievementsTexts(binding.a5.getRoot(), "Большое сердце", "Любовь, которую чувствуешь всегда");
+    }
+
+    private void setAchievementsTexts(MaterialCardView root, String name, String desc) {
+        MaterialTextView tvName = root.findViewById(R.id.name);
+        MaterialTextView tvDesc= root.findViewById(R.id.desc);
+        tvName.setText(name);
+        tvDesc.setText(desc);
+    }
+    private void render() {
+        int taps = prefs.getInt(KEY_TAPS,0);
+        int unlocked = prefs.getInt(KEY_UNLOCKED,0);
+        binding.tapCounter.setText("Нажатий: "+taps);
+        int nextUnlockIn = TAPS_PER_ACHIEVEMENT-(taps%TAPS_PER_ACHIEVEMENT);
+        if(unlocked>=ACHIEVEMENTS_TOTAL){
+            binding.nextUnlock.setText("Все достижения открыты");
+            binding.progress.setMax(TAPS_PER_ACHIEVEMENT);
+            binding.progress.setProgress(TAPS_PER_ACHIEVEMENT);
+        }
+        else {
+            binding.nextUnlock.setText("До следующего достижения "+nextUnlockIn);
+            binding.progress.setMax(TAPS_PER_ACHIEVEMENT);
+            binding.progress.setProgress(taps%TAPS_PER_ACHIEVEMENT);
+        }
     }
 }
