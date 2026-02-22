@@ -57,7 +57,16 @@ public class MainActivity extends AppCompatActivity {
             }
             render();
         });
-
+        binding.subtitle.setOnClickListener(View v->
+        {
+            prefs.edit()
+                    .putInt(KEY_TAPS,0)
+                    .putInt(KEY_UNLOCKED,0)
+                    .apply();
+            binding.finalCard.setVisibility(View.GONE);
+            binding.progress.setProgress(0);
+            render();
+        });
     }
 
 
