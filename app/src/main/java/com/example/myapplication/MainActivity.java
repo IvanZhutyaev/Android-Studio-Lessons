@@ -1,8 +1,10 @@
 package com.example.myapplication;
 
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -96,6 +98,41 @@ public class MainActivity extends AppCompatActivity {
             ((android.widget.ImageView)icon).setImageResource(R.drawable.ic_lock);
             chip.setEnabled(false);
             root.setAlpha(0.85f);
+        }
+    }
+
+    private void playUnlockAnimation(int unlockedCount){
+        View target;
+        switch (unlockedCount){
+            case 1:target=binding.a1.getRoot();break;
+            case 2:target=binding.a2.getRoot();break;
+            case 3:target=binding.a3.getRoot();break;
+            case 4:target=binding.a4.getRoot();break;
+            case 5:target=binding.a5.getRoot();break;
+            default:return;
+        }
+        target.animate().cancel();
+        target.setScaleX(0.98f);
+        target.setScaleY(0.98f);
+        target.animate()
+                .scaleX(1f)
+                .scaleY(1f)
+                .setDuration(420)
+                .setInterpolator(new OvershootInterpolator(1.2f))
+                .start();
+        if(unlockedCount>=ACHIEVEMENTS_TOTAL){
+            binding.finalCard.setAlpha(0f);
+            binding.finalCard.setVisibility(View.VISIBLE);
+            binding.finalCard.animate().alpha(1f).setDuration(350).start();
+        }
+    }
+    private void showUnlockedDialog(int unlockedCount){
+        if(unlockedCount<ACHIEVEMENTS_TOTAL){
+            new AlertDialog.Builder(this)
+                    .setTitle("Новое достижение")
+                    .setMessage("Открыто Достижение")
+                    .setPositiveButton("С праздником!!!", null)
+                    .show();
         }
     }
 }
