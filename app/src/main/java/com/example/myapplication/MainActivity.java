@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -65,5 +66,17 @@ public class MainActivity extends AppCompatActivity {
             binding.progress.setMax(TAPS_PER_ACHIEVEMENT);
             binding.progress.setProgress(taps%TAPS_PER_ACHIEVEMENT);
         }
+        appleAchievementState(binding.a1.getRoot(), unlocked>=1);
+        appleAchievementState(binding.a1.getRoot(), unlocked>=2);
+        appleAchievementState(binding.a1.getRoot(), unlocked>=3);
+        appleAchievementState(binding.a1.getRoot(), unlocked>=4);
+        appleAchievementState(binding.a1.getRoot(), unlocked>=5);
+
+        if(unlocked>=ACHIEVEMENTS_TOTAL){
+            binding.finalCard.setVisibility(View.VISIBLE);
+        }
+        else
+            binding.finalCard.setVisibility(View.GONE);
+
     }
 }
