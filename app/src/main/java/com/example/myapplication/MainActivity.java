@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         setupAchievementsTexts();
         render();
-
+        clear();
         binding.centerButton.setOnClickListener(v->{
             int taps=prefs.getInt(KEY_TAPS, 0)+1;
             prefs.edit().putInt(KEY_TAPS, taps).apply();
