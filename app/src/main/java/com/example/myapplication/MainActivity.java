@@ -92,10 +92,10 @@ public class MainActivity extends AppCompatActivity {
             binding.progress.setProgress(taps%TAPS_PER_ACHIEVEMENT);
         }
         appleAchievementState(binding.a1.getRoot(), unlocked>=1);
-        appleAchievementState(binding.a1.getRoot(), unlocked>=2);
-        appleAchievementState(binding.a1.getRoot(), unlocked>=3);
-        appleAchievementState(binding.a1.getRoot(), unlocked>=4);
-        appleAchievementState(binding.a1.getRoot(), unlocked>=5);
+        appleAchievementState(binding.a2.getRoot(), unlocked>=2);
+        appleAchievementState(binding.a3.getRoot(), unlocked>=3);
+        appleAchievementState(binding.a4.getRoot(), unlocked>=4);
+        appleAchievementState(binding.a5.getRoot(), unlocked>=5);
 
         if(unlocked>=ACHIEVEMENTS_TOTAL){
             binding.finalCard.setVisibility(View.VISIBLE);
