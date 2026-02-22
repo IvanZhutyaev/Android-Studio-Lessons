@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.chip.Chip;
 import com.google.android.material.textview.MaterialTextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -78,5 +79,23 @@ public class MainActivity extends AppCompatActivity {
         else
             binding.finalCard.setVisibility(View.GONE);
 
+    }
+
+    private void appleAchievementState(MaterialCardView root, boolean b) {
+        View icon  = root.findViewById(R.id.icon);
+        Chip chip = root.findViewById(R.id.status);
+        if(b){
+            icon.setBackground(null);
+            ((android.widget.ImageView)icon).setImageResource(R.drawable.ic_star);
+            chip.setText("ОТКРЫТО");
+            chip.setChipIconVisible(false);
+            chip.setEnabled(false);
+            root.setAlpha(1f);
+        }
+        else {
+            ((android.widget.ImageView)icon).setImageResource(R.drawable.ic_lock);
+            chip.setEnabled(false);
+            root.setAlpha(0.85f);
+        }
     }
 }
