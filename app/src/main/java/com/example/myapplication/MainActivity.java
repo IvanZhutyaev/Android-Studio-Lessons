@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
             render();
         });
-        binding.subtitle.setOnClickListener(View v->
+        binding.subtitle.setOnClickListener(v->
         {
             prefs.edit()
                     .putInt(KEY_TAPS,0)
