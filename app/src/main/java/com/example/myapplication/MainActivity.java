@@ -47,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
                     .scaleY(1.03f)
                     .setDuration(90)
                     .withEndAction(()->v.animate().scaleX(1f).scaleY(1f).setDuration(120).start()).start();
+
+            int unlocked=prefs.getInt(KEY_UNLOCKED,0);
+            int shouldBeUnlocked=Math.min(ACHIEVEMENTS_TOTAL, taps/TAPS_PER_ACHIEVEMENT);
+            if(shouldBeUnlocked>unlocked){
+                prefs.edit().putInt(KEY_UNLOCKED,shouldBeUnlocked).apply();
+                playUnlockAnimation(shouldBeUnlocked);
+                showUnlockedDialog(shouldBeUnlocked);
+            }
+            render();
         });
 
     }
