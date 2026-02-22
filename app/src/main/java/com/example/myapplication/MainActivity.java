@@ -117,6 +117,11 @@ public class MainActivity extends AppCompatActivity {
     private void appleAchievementState(MaterialCardView root, boolean b) {
         View icon  = root.findViewById(R.id.icon);
         Chip chip = root.findViewById(R.id.status);
+        chip.setText("ЗАКРЫТО");
+        MaterialTextView tvName = root.findViewById(R.id.name);
+        MaterialTextView tvDesc = root.findViewById(R.id.desc);
+        tvName.setVisibility(View.GONE);
+        tvDesc.setVisibility(View.GONE);
         if(b){
             icon.setBackground(null);
             ((android.widget.ImageView)icon).setImageResource(R.drawable.ic_star);
@@ -124,6 +129,9 @@ public class MainActivity extends AppCompatActivity {
             chip.setChipIconVisible(false);
             chip.setEnabled(false);
             root.setAlpha(1f);
+            tvName.setVisibility(View.VISIBLE);
+            tvDesc.setVisibility(View.VISIBLE);
+            setupAchievementsTexts();
         }
         else {
             ((android.widget.ImageView)icon).setImageResource(R.drawable.ic_lock);
