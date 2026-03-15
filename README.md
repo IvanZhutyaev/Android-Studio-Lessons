@@ -74,3 +74,12 @@ Bundle bundle= new Bundle();
 bundle.putString("name", binding.nameEdt.getText().toString());
 intent.putExtras(bundle);
 ```
+
+### Приём данных с другой Activity
+```java
+Bundle bundle;
+bundle=getIntent().getExtras();
+if(bundle!=null(){
+	binding.nameEdt.setText(bundle.getString("name"));
+}
+```
