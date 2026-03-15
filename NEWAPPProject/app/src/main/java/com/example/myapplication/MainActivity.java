@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,12 +17,24 @@ import com.example.myapplication.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+    ActivityResultLauncher<Intent> launcher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
         Bundle bundle= new Bundle();
+        launcher=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result->{
+           if (result.getResultCode()==RESULT_OK){
+               String data = result.getData().getStringExtra("name");
+               Toast.makeText(this,data,Toast.LENGTH_LONG).show();
+            }
+        });
+        binding.resultBtn.setOnClickListener(c->{
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                launcher.launch(intent);
+        }
+        );
 
         binding.nextBtn.setOnClickListener(c->{
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
