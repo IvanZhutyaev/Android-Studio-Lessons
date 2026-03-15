@@ -27,7 +27,10 @@ public class MainActivity2 extends AppCompatActivity {
             startActivity(intent);
         });
         binding.nextBtn.setOnClickListener(c->{
-            Toast.makeText(this, "Ne zmay", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent();
+            intent.putExtra("name", binding.resultEdt.getText().toString());
+            setResult(RESULT_OK, intent);
+            finish();
         });
     }
 
