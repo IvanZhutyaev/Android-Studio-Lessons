@@ -61,3 +61,9 @@ setcontentView(binding.getRoot());
         app:layout_constraintHorizontal_bias="0.3" //Привязка по горизонтали
         />
 ```
+
+### Переключение между Activity
+```java
+Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+startActivity(intent);
+```
