@@ -19,10 +19,13 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
-
+        Bundle bundle= new Bundle();
 
         binding.nextBtn.setOnClickListener(c->{
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            bundle.putString("name", binding.nameEdt.getText().toString());
+            bundle.putString("city", binding.cityEdt.getText().toString());
+            intent.putExtras(bundle);
             startActivity(intent);
         });
         binding.prevBtn.setOnClickListener(c->{
