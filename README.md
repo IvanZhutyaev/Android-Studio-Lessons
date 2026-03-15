@@ -67,3 +67,10 @@ setcontentView(binding.getRoot());
 Intent intent = new Intent(MainActivity2.this, MainActivity.class);
 startActivity(intent);
 ```
+
+### Передача данных между Activity
+```java
+Bundle bundle= new Bundle();
+bundle.putString("name", binding.nameEdt.getText().toString());
+intent.putExtras(bundle);
+```
