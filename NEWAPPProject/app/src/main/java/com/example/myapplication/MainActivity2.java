@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,12 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
 
+        binding.prevBtn.setOnClickListener(c->{
+            Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+            startActivity(intent);
+        });
+        binding.nextBtn.setOnClickListener(c->{
+            Toast.makeText(this, "Ne zmay", Toast.LENGTH_LONG).show();
+        });
     }
 }
