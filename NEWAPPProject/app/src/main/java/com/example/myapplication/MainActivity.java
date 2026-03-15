@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         });
         binding.prevBtn.setOnClickListener(c->{
             Toast.makeText(this, "Ne zmay", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("geo:55.23422, 45.45444"));
+            startActivity(intent);
         });
     }
 }
